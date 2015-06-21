@@ -32,7 +32,7 @@
    <script src="js/plugins/raphael/raphael-min.js"></script>
    <script src="js/plugins/morris/morris-0.4.1.min.js"></script>
    <script src="js/plugins/knob/jquery.knob.min.js"></script>
-<script src="js/inputSlider-1.0.js"></script>
+
      <!-- Flot Charts JavaScript -->
     <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
 
@@ -131,28 +131,42 @@ $(function() {
     $( "#slider" ).slider({
       value:50,
       min: 0,
-      max: 100,
-      step: 5,
+      max: 1,
+      step: 0.1,
       slide: function( event, ui ) {
         $( "#amount" ).val( "" + ui.value );
+		var rev2=1-$("#amount").val();
+			$("#amount2").val(rev2.toFixed(1));
+			$("#updateRev2").text(rev2.toFixed(1));
       }
     });
     $( "#amount" ).val( "" + $( "#slider" ).slider( "value" ) );
+
   });
   function setPercentage()
   {
-	  var currentPercentage=$("#amount").val();
+	  var rev1=$("#amount").val();
+	  var rev2=$("#amount2").val();
+	  
 	 var datajson={
         mirrorMode:false,
         revisions:[
         {
          revision:1,
+<<<<<<< HEAD
+         trafficRatio:rev1,
+=======
          trafficRatio:,
+>>>>>>> c9ecb1b310abe51ff5c8ab6ee269216ae5921842
          primary:true
         },
         {
          revision:2,
+<<<<<<< HEAD
+         trafficRatio:rev2,
+=======
          trafficRatio:,
+>>>>>>> c9ecb1b310abe51ff5c8ab6ee269216ae5921842
          primary:false
       }
    ]
@@ -355,9 +369,10 @@ alert("url="+url+" data="+datajson);
                     <div class="col-lg-6 col-md-6">
                     <div align="center"></div>
                     <div id="slider"></div>
-                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; align-content:center">
                     <br>
-                    <input type="button" class="btn btn-lg btn-success" value="Set It" onClick="setPercentage();">
+                    <label>Revision 1:</label><input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; align-content:center">
+                    <div class="pull-right"><label class="pull-right">Revision 2:<span style="border:0; color:#f6931f; font-weight:bold;" id="updateRev2">0</span></label><input type="text" id="amount2" value="0" class="pull-right" readonly style="border:0; color:#f6931f; font-weight:bold;  display:none"> </div>
+                    <input type="button" class="btn btn-lg btn-success center-block"  value="Set It" onClick="setPercentage();">
                     </div>
                     <div class="col-lg-3 col-md-6 pull-right">
                         <div class="panel panel-danger">
