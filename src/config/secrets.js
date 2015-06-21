@@ -1,6 +1,8 @@
 module.exports = {
   db: process.env.MONGODB|| 'mongodb://192.168.59.103:27017/test',
 
+  elasticSearch: process.env.ES_IP_AND_PORT || '52.26.67.111:9200',
+
   sessionSecret: process.env.SESSION_SECRET || 'Your Session Secret goes here',
 
   localAuth: true,

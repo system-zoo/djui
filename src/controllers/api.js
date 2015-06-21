@@ -33,6 +33,19 @@ var messages = [
     request: { type: "GET", filter: "whale" },
     response: [{ name: "MobyDock", classification: "whale" }, { name: "Octocat", classification: "Octopus and Cat" }]
 }];
+
+var esmetrics = {
+       containerid: "0b0c75dc3a5e",
+       requestdate: "2015-06-21",
+       requesttime: "01:56:59",
+       containername: "hopeful_stallman",
+       response: {
+          request: 126,
+          duration: 2500,
+          response: 126,
+          code: 500
+       }
+    }
 /**
  * GET /api
  * List of API examples.
@@ -47,6 +60,25 @@ exports.getApi = function(req, res) {
 exports.getSystemZoo = function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.json(messages);
+}
+
+exports.setTrafficDistribution = function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  /*
+{
+  percent: "10",
+  mirrormode: "false"
+}
+  */
+
+  var percent = req.body.percent;
+  var mirrormode = req.body.mirrormode;
+
+    'use strict';
+    console.log(req.body);
+    console.log(req.body.percent);
+    console.log(req.body.mirrormode);
+    res.send(200);
 }
  
 /**

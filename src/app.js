@@ -11,6 +11,8 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
 var ejslocals = require('ejs-locals');
+var elasticsearch = require('elasticsearch');
+var bodyParser = require('body-parser');
 
 /**
  * Load controllers.
@@ -44,6 +46,27 @@ mongoose.connection.on('error', function() {
 });
 
 /**
+* ElasticSearch Configuration and test run
+*/
+var esclient = new elasticsearch.Client({
+  host: secrets.elasticSearch,
+  log: 'trace'
+});
+
+esclient.ping({
+  requestTimeout: 30000,
+
+  // undocumented params are appended to the query string
+  hello: "elasticsearch!"
+}, function (error) {
+  if (error) {
+    console.error('✗ Elasticsearch cluster is down!');
+  } else {
+    console.log('All is well');
+  }
+});
+
+/**
  * Express configuration.
  */
 
@@ -59,6 +82,7 @@ app.use(connectAssets({
   paths: ['public/css', 'public/js'],
   helperContext: app.locals
 }));
+
 app.use(express.compress());
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -74,15 +98,16 @@ app.use(express.session({
     auto_reconnect: true
   })
 }));
-app.use(express.csrf());
+app.use(bodyParser.json());
+//app.use(express.csrf());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next) {
-  res.locals.user = req.user;
-  res.locals.token = req.csrfToken();
-  res.locals.secrets = secrets;
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.locals.user = req.user;
+//   res.locals.token = req.csrfToken();
+//   res.locals.secrets = secrets;
+//   next();
+// });
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: month }));
 app.use(function(req, res, next) {
@@ -106,6 +131,7 @@ app.use(express.errorHandler());
 
 app.get('/', homeController.index);
 app.get('/api/systemzoo', apiController.getSystemZoo);
+app.post('/api/distribution', apiController.setTrafficDistribution);
 
 
 app.get('/login', userController.getLogin);
