@@ -40,10 +40,10 @@ var app = express();
  * Mongoose configuration.
  */
 
-mongoose.connect(secrets.db);
-mongoose.connection.on('error', function() {
-  console.error('✗ MongoDB Connection Error. Please make sure MongoDB is running.');
-});
+// mongoose.connect(secrets.db);
+// mongoose.connection.on('error', function() {
+//   console.error('✗ MongoDB Connection Error. Please make sure MongoDB is running.');
+// });
 
 /**
 * ElasticSearch Configuration and test run
