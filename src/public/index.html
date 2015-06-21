@@ -50,9 +50,9 @@ $(document).ready(function(e) {
 Morris.Donut({
   element: 'donut-example1',
   data: [
-    {label: "Download Sales", value: 12},
-    {label: "In-Store Sales", value: 30},
-    {label: "Mail-Order Sales", value: 20}
+    {label: "CPU", value: 80},
+    {label: "RAM", value: 70},
+    {label: "Errors", value: 12}
   ]
 });
 Morris.Line({
@@ -149,11 +149,11 @@ $(function() {
 	  var rev2=$("#amount2").val();
 	  console.log("building json");
 	 var datajson = {
-                        "mirrorMode":"false",
+                        "mirrorMode":false,
                         "revisions":
                         [
-                            {"revision":1,"trafficRatio": rev1, "primary":"true"},
-                            {"revision":2,"trafficRatio": rev2 ,"primary":"false"}
+                            {"revision":1,"trafficRatio": rev1, "primary":true},
+                            {"revision":2,"trafficRatio": rev2 ,"primary":false}
                         ]
                     };
 console.log("datajson is " + datajson);
@@ -379,39 +379,7 @@ var url = "http://youdown.com:6543/v1/kv/test-service-1";
                     </div>
                 </div>
                 <!--CPU RAM  close-->
-<!--row1 --><div class="row">
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-8
-                            </div>
-                        </div>
-                    </div>
-                </div><!--row1 end-->
-                <!-- row2-->
-                <div class="row">
-                    <div class="col-lg-4 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-4
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 text-center">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                .col-lg-8
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- row2 end-->
+<!--row1 -->
                 <!-- charts-->
                
                 <!-- more charts -->
@@ -419,7 +387,7 @@ var url = "http://youdown.com:6543/v1/kv/test-service-1";
                     <div class="col-lg-4">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pie Chart Example with Tooltips</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Pie Chart</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">
@@ -434,7 +402,7 @@ var url = "http://youdown.com:6543/v1/kv/test-service-1";
                     <div class="col-lg-8">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Multiple Axes Line Graph Example with Tooltips and Raw Data</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Multiple Axes Line Graph </h3>
                             </div>
                             <div class="panel-body">
                                 <div class="flot-chart">
