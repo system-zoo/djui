@@ -91,13 +91,13 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(expressValidator());
 app.use(express.methodOverride());
-app.use(express.session({
-  secret: secrets.sessionSecret,
-  store: new MongoStore({
-    url: secrets.db,
-    auto_reconnect: true
-  })
-}));
+// app.use(express.session({
+//   secret: secrets.sessionSecret,
+//   store: new MongoStore({
+//     url: secrets.db,
+//     auto_reconnect: true
+//   })
+// }));
 app.use(bodyParser.json());
 //app.use(express.csrf());
 app.use(passport.initialize());
