@@ -105,6 +105,9 @@ app.use(express.errorHandler());
  */
 
 app.get('/', homeController.index);
+app.get('/api/systemzoo', apiController.getSystemZoo);
+
+
 app.get('/login', userController.getLogin);
 app.post('/login', userController.postLogin);
 app.get('/logout', userController.logout);

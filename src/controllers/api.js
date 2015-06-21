@@ -17,6 +17,22 @@ var twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
 var Linkedin = require('node-linkedin')(secrets.linkedin.clientID, secrets.linkedin.clientSecret, secrets.linkedin.callbackURL);
 var clockwork = require('clockwork')({key: secrets.clockwork.apiKey});
 
+
+var messages = [
+{
+    id: "1000",
+    code: "500",
+    duration: "528",
+    request: { name: "MobyDock", type: "POST", classification: "whale" },
+    response: { result: "OK" }
+},
+{
+    id: "1001",
+    code: "200",
+    duration: "0",
+    request: { type: "GET", filter: "whale" },
+    response: [{ name: "MobyDock", classification: "whale" }, { name: "Octocat", classification: "Octopus and Cat" }]
+}];
 /**
  * GET /api
  * List of API examples.
@@ -28,6 +44,11 @@ exports.getApi = function(req, res) {
   });
 };
 
+exports.getSystemZoo = function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.json(messages);
+}
+ 
 /**
  * GET /api/foursquare
  * Foursquare API example.
