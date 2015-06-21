@@ -153,18 +153,26 @@ $(function() {
         revisions:[
         {
          revision:1,
+<<<<<<< HEAD
          trafficRatio:rev1,
+=======
+         trafficRatio:,
+>>>>>>> c9ecb1b310abe51ff5c8ab6ee269216ae5921842
          primary:true
         },
         {
          revision:2,
+<<<<<<< HEAD
          trafficRatio:rev2,
+=======
+         trafficRatio:,
+>>>>>>> c9ecb1b310abe51ff5c8ab6ee269216ae5921842
          primary:false
       }
    ]
 };
 
-var url="http://consul.0.youdown.com:8500/v1/kv/themix"
+var url="http://localhost/v1/kv/themix"
 alert("url="+url+" data="+datajson);
 	   $.ajax({
     	    type: "PUT",
