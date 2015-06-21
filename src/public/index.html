@@ -164,15 +164,13 @@ alert("url="+url+" data="+datajson);
     	    url: url,
     	    dataType: 'json',
     	    data : datajson,
-    	    async: false,
-    	    crossDomain : true,
     	    success: function(o){
     	    alert("success");
 			//var stringjson=JSON.stringify(o);
 			
 			},
     	     error: function(response,text,err){
-    	    	 alert(err);
+    	    	 alert("werewr"+err);
     	 	 }
 	   });
 }
