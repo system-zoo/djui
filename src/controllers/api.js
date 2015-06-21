@@ -87,15 +87,17 @@ exports.setTrafficDistribution = function(req, res) {
         //another chunk of data has been recieved, so append it to `str`
         response.on('data', function(chunk) {
           str += chunk;
+          console.log(str);
         });
 
         //the whole response has been recieved, so we just print it out here
         response.on('end', function() {
-          console.log(str);
+          console.log("Response received " + str);
         });
     };
 
     http.request(options, callback).write(bodyString);
+    console.log("Call Complete");
     res.send(200);
 }
  
