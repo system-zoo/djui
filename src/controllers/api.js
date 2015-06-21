@@ -16,6 +16,7 @@ var paypal = require('paypal-rest-sdk');
 var twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
 var Linkedin = require('node-linkedin')(secrets.linkedin.clientID, secrets.linkedin.clientSecret, secrets.linkedin.callbackURL);
 var clockwork = require('clockwork')({key: secrets.clockwork.apiKey});
+var http = require('http');
 
 
 var messages = [
@@ -63,6 +64,7 @@ exports.getSystemZoo = function(req, res) {
 }
 
 exports.setTrafficDistribution = function(req, res) {
+    var bodyString = JSON.stringify(req.body);
     var options = {
       host: 'consul.0.youdown.com',
       path: 'v1/kv/themix',
@@ -75,7 +77,9 @@ exports.setTrafficDistribution = function(req, res) {
         'Content-Type': 'application/json',
         'Content-Length': bodyString.length
     };
-    console.log(req.body);
+
+
+    console.log(bodyString);
 
     var callback = function(response) {
       var str = '';
@@ -91,7 +95,7 @@ exports.setTrafficDistribution = function(req, res) {
         });
     };
 
-    http.request(options, callback).write(req.body);
+    http.request(options, callback).write(bodyString);
     res.send(200);
 }
  

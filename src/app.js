@@ -109,7 +109,7 @@ app.use(bodyParser.json());
 //   res.locals.secrets = secrets;
 //   next();
 // });
-app.use(flash());
+//app.use(flash());
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: month }));
 app.use(function(req, res, next) {
   // Keep track of previous URL
@@ -132,7 +132,7 @@ app.use(express.errorHandler());
 console.log("Applying routes");
 app.get('/', homeController.index);
 app.get('/api/systemzoo', apiController.getSystemZoo);
-app.post('/api/distribution', apiController.setTrafficDistribution);
+app.put('/api/distribution', apiController.setTrafficDistribution);
 
 
 // app.get('/login', userController.getLogin);
