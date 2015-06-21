@@ -142,22 +142,23 @@ $(function() {
   function setPercentage()
   {
 	  var currentPercentage=$("#amount").val();
-	 var datajson='{'+
-   '"mirrorMode":false,'+
-   '"revisions":['+
-      '{'+
-         '"revision":1,'+
-         '"trafficRatio":0.9,'+
-        ' "primary":true'+
-      '},'+
-      '{'+
-       '  "revision":2,'+
-      '   "trafficRatio":0.1,'+
-     '    "primary":false'+
-    '  }'+
-   ']'+
-'}';
-var url="http://52.11.163.126:8500/v1/kv/themix"
+	 var datajson={
+        mirrorMode:false,
+        revisions:[
+        {
+         revision:1,
+         trafficRatio:0.9,
+         primary:true
+        },
+        {
+         revision:2,
+         trafficRatio:0.1,
+         primary:false
+      }
+   ]
+};
+
+var url="http://consul.0.youdown.com:8500/v1/kv/themix"
 alert("url="+url+" data="+datajson);
 	   $.ajax({
     	    type: "PUT",
@@ -343,7 +344,7 @@ alert("url="+url+" data="+datajson);
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">70</div>
-                                        <div>RAM</div>
+                                        <div>Memory</div>
                                     </div>
                                 </div>
                             </div>
@@ -367,7 +368,7 @@ alert("url="+url+" data="+datajson);
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div class="huge">80</div>
-                                        <div>CPU</div>
+                                        <div>Compute</div>
                                     </div>
                                 </div>
                             </div>

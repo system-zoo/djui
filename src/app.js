@@ -48,23 +48,23 @@ var app = express();
 /**
 * ElasticSearch Configuration and test run
 */
-var esclient = new elasticsearch.Client({
-  host: secrets.elasticSearch,
-  log: 'trace'
-});
+// var esclient = new elasticsearch.Client({
+//   host: secrets.elasticSearch,
+//   log: 'trace'
+// });
 
-esclient.ping({
-  requestTimeout: 30000,
+// esclient.ping({
+//   requestTimeout: 30000,
 
-  // undocumented params are appended to the query string
-  hello: "elasticsearch!"
-}, function (error) {
-  if (error) {
-    console.error('✗ Elasticsearch cluster is down!');
-  } else {
-    console.log('All is well');
-  }
-});
+//   // undocumented params are appended to the query string
+//   hello: "elasticsearch!"
+// }, function (error) {
+//   if (error) {
+//     console.error('✗ Elasticsearch cluster is down!');
+//   } else {
+//     console.log('All is well');
+//   }
+// });
 
 /**
  * Express configuration.
