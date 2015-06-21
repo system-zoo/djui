@@ -1,26 +1,171 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'json-proxy' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.35
-4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info prestart hackathon-starter-ejs@0.0.0
-6 info start hackathon-starter-ejs@0.0.0
-7 verbose unsafe-perm in lifecycle true
-8 info hackathon-starter-ejs@0.0.0 Failed to exec start script
-9 error hackathon-starter-ejs@0.0.0 start: `node app.js`
-9 error Exit status 8
-10 error Failed at the hackathon-starter-ejs@0.0.0 start script.
-10 error This is most likely a problem with the hackathon-starter-ejs package,
-10 error not with npm itself.
-10 error Tell the author that this fails on your system:
-10 error     node app.js
-10 error You can get their info via:
-10 error     npm owner ls hackathon-starter-ejs
-10 error There is likely additional logging output above.
-11 error System Darwin 14.1.0
-12 error command "node" "/usr/local/bin/npm" "start"
-13 error cwd /Users/jve299/dev/projects/system-zoo-ui/src
-14 error node -v v0.10.35
-15 error npm -v 1.4.28
-16 error code ELIFECYCLE
-17 verbose exit [ 1, true ]
+4 verbose cache add [ 'json-proxy', null ]
+5 verbose cache add name=undefined spec="json-proxy" args=["json-proxy",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'json-proxy',
+6 verbose parsed url   path: 'json-proxy',
+6 verbose parsed url   href: 'json-proxy' }
+7 silly lockFile 1e45ca70-json-proxy json-proxy
+8 verbose lock json-proxy /Users/jve299/.npm/1e45ca70-json-proxy.lock
+9 silly lockFile 1e45ca70-json-proxy json-proxy
+10 silly lockFile 1e45ca70-json-proxy json-proxy
+11 verbose addNamed [ 'json-proxy', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 34005d98-json-proxy json-proxy@
+14 verbose lock json-proxy@ /Users/jve299/.npm/34005d98-json-proxy.lock
+15 silly addNameRange { name: 'json-proxy', range: '*', hasData: false }
+16 verbose request where is /json-proxy
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id b7729790eec8ea85
+19 verbose url raw /json-proxy
+20 verbose url resolving [ 'https://registry.npmjs.org/', './json-proxy' ]
+21 verbose url resolved https://registry.npmjs.org/json-proxy
+22 verbose request where is https://registry.npmjs.org/json-proxy
+23 info trying registry request attempt 1 at 08:17:54
+24 verbose etag "BJBAOM51IX8R13NNDGNE5RVK4"
+25 http GET https://registry.npmjs.org/json-proxy
+26 http 304 https://registry.npmjs.org/json-proxy
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Sun, 21 Jun 2015 12:16:44 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"BJBAOM51IX8R13NNDGNE5RVK4"',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-sjc3130-SJC',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1434889004.276722,VS0,VE163',
+27 silly registry.get     vary: 'Accept' } ]
+28 verbose etag https://registry.npmjs.org/json-proxy from cache
+29 silly addNameRange number 2 { name: 'json-proxy', range: '*', hasData: true }
+30 silly addNameRange versions [ 'json-proxy',
+30 silly addNameRange   [ '0.0.1',
+30 silly addNameRange     '0.0.3',
+30 silly addNameRange     '0.0.5',
+30 silly addNameRange     '0.1.0',
+30 silly addNameRange     '0.1.1',
+30 silly addNameRange     '0.1.2',
+30 silly addNameRange     '0.2.0',
+30 silly addNameRange     '0.3.0',
+30 silly addNameRange     '0.3.1',
+30 silly addNameRange     '0.9.0',
+30 silly addNameRange     '0.9.1' ] ]
+31 verbose addNamed [ 'json-proxy', '0.9.1' ]
+32 verbose addNamed [ '0.9.1', '0.9.1' ]
+33 silly lockFile 30999b4f-json-proxy-0-9-1 json-proxy@0.9.1
+34 verbose lock json-proxy@0.9.1 /Users/jve299/.npm/30999b4f-json-proxy-0-9-1.lock
+35 silly lockFile 30999b4f-json-proxy-0-9-1 json-proxy@0.9.1
+36 silly lockFile 30999b4f-json-proxy-0-9-1 json-proxy@0.9.1
+37 silly lockFile 34005d98-json-proxy json-proxy@
+38 silly lockFile 34005d98-json-proxy json-proxy@
+39 silly resolved [ { name: 'json-proxy',
+39 silly resolved     version: '0.9.1',
+39 silly resolved     description: 'Grunt plugin / CLI utility / Express middleware to proxy API requests to remote servers without CORS or JSONP.',
+39 silly resolved     keywords:
+39 silly resolved      [ 'utility',
+39 silly resolved        'proxy',
+39 silly resolved        'json proxy',
+39 silly resolved        'api proxy',
+39 silly resolved        'grunt',
+39 silly resolved        'gruntplugin',
+39 silly resolved        'grunt proxy',
+39 silly resolved        'connect proxy',
+39 silly resolved        'connect proxy',
+39 silly resolved        'express proxy',
+39 silly resolved        'middleware' ],
+39 silly resolved     license: 'MIT',
+39 silly resolved     author: { name: 'steve-jansen' },
+39 silly resolved     homepage: 'https://github.com/steve-jansen/json-proxy',
+39 silly resolved     repository:
+39 silly resolved      { type: 'git',
+39 silly resolved        url: 'git+ssh://git@github.com/steve-jansen/json-proxy.git' },
+39 silly resolved     bugs:
+39 silly resolved      { url: 'https://github.com/steve-jansen/json-proxy/issues',
+39 silly resolved        email: 'stevejansen_github@icloud.com' },
+39 silly resolved     main: './index.js',
+39 silly resolved     bin: { 'json-proxy': './bin/json-proxy' },
+39 silly resolved     engine: 'node >= 0.10.x',
+39 silly resolved     dependencies:
+39 silly resolved      { 'http-proxy': '~1.11.0',
+39 silly resolved        colors: '~1.1.0',
+39 silly resolved        optimist: '~0.6.1',
+39 silly resolved        express: '~4.12.3',
+39 silly resolved        morgan: '~1.5.2' },
+39 silly resolved     devDependencies:
+39 silly resolved      { istanbul: '~0.3.8',
+39 silly resolved        mocha: '~2.2.1',
+39 silly resolved        tmp: '~0.0.25',
+39 silly resolved        nock: '~2.2.0',
+39 silly resolved        portfinder: '~0.4.0',
+39 silly resolved        async: '~0.9.0',
+39 silly resolved        request: '~2.53.0',
+39 silly resolved        jshint: '~2.6.3',
+39 silly resolved        'codeclimate-test-reporter': '*' },
+39 silly resolved     scripts:
+39 silly resolved      { jshint: 'node node_modules/.bin/jshint lib/*  --show-non-errors',
+39 silly resolved        test: 'node node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha --dir ./.coverage -- --recursive ./spec/*.js --reporter spec',
+39 silly resolved        codeclimate: 'CODECLIMATE_REPO_TOKEN=9fa850087ebd65087f3754648c7d55647685cf583fa55b27474bcc76695c1e56 node node_modules/.bin/codeclimate < .coverage/lcov.info' },
+39 silly resolved     gitHead: '2cb4668370b23fc66d0f45954552927e6edb0cab',
+39 silly resolved     _id: 'json-proxy@0.9.1',
+39 silly resolved     _shasum: '32088e5db6bcff31b00700aaf5df8d1bce4a8705',
+39 silly resolved     _from: 'json-proxy@',
+39 silly resolved     _npmVersion: '2.10.1',
+39 silly resolved     _nodeVersion: '0.12.4',
+39 silly resolved     _npmUser: { name: 'steve-jansen', email: 'stevejansen_github@icloud.com' },
+39 silly resolved     maintainers: [ [Object] ],
+39 silly resolved     dist:
+39 silly resolved      { shasum: '32088e5db6bcff31b00700aaf5df8d1bce4a8705',
+39 silly resolved        tarball: 'http://registry.npmjs.org/json-proxy/-/json-proxy-0.9.1.tgz' },
+39 silly resolved     directories: {},
+39 silly resolved     _resolved: 'https://registry.npmjs.org/json-proxy/-/json-proxy-0.9.1.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install json-proxy@0.9.1 into /usr/local/lib
+41 info installOne json-proxy@0.9.1
+42 verbose lib/node_modules/json-proxy unbuild
+43 verbose tar unpack /Users/jve299/.npm/json-proxy/0.9.1/package.tgz
+44 silly lockFile 185f25b6-ocal-lib-node-modules-json-proxy tar:///usr/local/lib/node_modules/json-proxy
+45 verbose lock tar:///usr/local/lib/node_modules/json-proxy /Users/jve299/.npm/185f25b6-ocal-lib-node-modules-json-proxy.lock
+46 silly lockFile 0b525b9c-npm-json-proxy-0-9-1-package-tgz tar:///Users/jve299/.npm/json-proxy/0.9.1/package.tgz
+47 verbose lock tar:///Users/jve299/.npm/json-proxy/0.9.1/package.tgz /Users/jve299/.npm/0b525b9c-npm-json-proxy-0-9-1-package-tgz.lock
+48 silly gunzTarPerm modes [ '755', '644' ]
+49 error Error: EACCES, mkdir '/usr/local/lib/node_modules/json-proxy'
+49 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/json-proxy']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/usr/local/lib/node_modules/json-proxy',
+49 error   fstream_type: 'Directory',
+49 error   fstream_path: '/usr/local/lib/node_modules/json-proxy',
+49 error   fstream_class: 'DirWriter',
+49 error   fstream_stack:
+49 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+49 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+49 error      'Object.oncomplete (fs.js:108:15)' ] }
+50 error Please try running this command again as root/Administrator.
+51 error System Darwin 14.1.0
+52 error command "node" "/usr/local/bin/npm" "install" "-g" "json-proxy"
+53 error cwd /Users/jve299/dev/projects/system-zoo-ui/src
+54 error node -v v0.10.35
+55 error npm -v 1.4.28
+56 error path /usr/local/lib/node_modules/json-proxy
+57 error fstream_path /usr/local/lib/node_modules/json-proxy
+58 error fstream_type Directory
+59 error fstream_class DirWriter
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/json-proxy'
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+63 error fstream_stack Object.oncomplete (fs.js:108:15)
+64 verbose exit [ 3, true ]
