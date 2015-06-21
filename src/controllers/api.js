@@ -79,9 +79,10 @@ exports.setTrafficDistribution = function(req, res) {
     };
 
 
-    console.log(bodyString);
+    console.log("Body to post - " + bodyString);
 
     var callback = function(response) {
+      console.log("Response received from Consul - " + response);
       var str = '';
 
         //another chunk of data has been recieved, so append it to `str`
@@ -97,7 +98,7 @@ exports.setTrafficDistribution = function(req, res) {
     };
 
     http.request(options, callback).write(bodyString);
-    console.log("Call Complete");
+    console.log("PUT to Consul started");
     res.send(200);
 }
  
