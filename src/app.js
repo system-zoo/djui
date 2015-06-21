@@ -83,6 +83,7 @@ app.use(connectAssets({
   helperContext: app.locals
 }));
 
+console.log("step 1");
 app.use(express.compress());
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -100,8 +101,8 @@ app.use(express.methodOverride());
 // }));
 app.use(bodyParser.json());
 //app.use(express.csrf());
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 // app.use(function(req, res, next) {
 //   res.locals.user = req.user;
 //   res.locals.token = req.csrfToken();
@@ -128,7 +129,7 @@ app.use(express.errorHandler());
 /**
  * Application routes.
  */
-
+console.log("Applying routes");
 app.get('/', homeController.index);
 app.get('/api/systemzoo', apiController.getSystemZoo);
 app.post('/api/distribution', apiController.setTrafficDistribution);
