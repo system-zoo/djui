@@ -147,39 +147,33 @@ $(function() {
   {
 	  var rev1=$("#amount").val();
 	  var rev2=$("#amount2").val();
-	  
-	 var datajson={
-        mirrorMode:false,
-        revisions:[
-        {
-         revision:1,
+	  console.log("building json");
+	 var datajson = {
+                        "mirrorMode":"false",
+                        "revisions":
+                        [
+                            {"revision":1,"trafficRatio": rev1, "primary":"true"},
+                            {"revision":2,"trafficRatio": rev2 ,"primary":"false"}
+                        ]
+                    };
+console.log("datajson is " + datajson);
+console.log("datajson to stringify " + JSON.stringify(datajson));
+ 
 
-         trafficRatio:rev1,
-         primary:true
-        },
-        {
-         revision:2,
-         trafficRatio:rev2,
-         primary:false
-      }
-   ]
-};
 
-var url="http://youdown.com:3000/api/distribution"
-alert("url="+url+" data="+datajson);
+var url = "http://youdown.com:6543/v1/kv/themix";
+
 	   $.ajax({
     	    type: "PUT",
     	    url: url,
-    	    dataType: 'json',
-    	    data : datajson,
-    	    success: function(o){
-    	    alert("success");
-			//var stringjson=JSON.stringify(o);
-			
+    	    dataType: "json",
+    	    data : JSON.stringify(datajson),
+    	    success: function(response){
+    	       alert("success");
 			},
-    	     error: function(response,text,err){
-    	    	 alert("Danger! Danger! " + err + " " + text + " " + response);
-    	 	 }
+    	    error: function(response, text, err){
+    	    	 alert("Danger! Danger! " + err + " " + text + " " + JSON.stringify(response));
+    	 	}
 	   });
 }
 </script>

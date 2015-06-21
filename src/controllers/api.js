@@ -17,36 +17,9 @@ var twilio = require('twilio')(secrets.twilio.sid, secrets.twilio.token);
 var Linkedin = require('node-linkedin')(secrets.linkedin.clientID, secrets.linkedin.clientSecret, secrets.linkedin.callbackURL);
 var clockwork = require('clockwork')({key: secrets.clockwork.apiKey});
 var http = require('http');
+var util = require('util');
 
 
-var messages = [
-{
-    id: "1000",
-    code: "500",
-    duration: "528",
-    request: { name: "MobyDock", type: "POST", classification: "whale" },
-    response: { result: "OK" }
-},
-{
-    id: "1001",
-    code: "200",
-    duration: "0",
-    request: { type: "GET", filter: "whale" },
-    response: [{ name: "MobyDock", classification: "whale" }, { name: "Octocat", classification: "Octopus and Cat" }]
-}];
-
-var esmetrics = {
-       containerid: "0b0c75dc3a5e",
-       requestdate: "2015-06-21",
-       requesttime: "01:56:59",
-       containername: "hopeful_stallman",
-       response: {
-          request: 126,
-          duration: 2500,
-          response: 126,
-          code: 500
-       }
-    }
 /**
  * GET /api
  * List of API examples.
@@ -64,6 +37,10 @@ exports.getSystemZoo = function(req, res) {
 }
 
 exports.setTrafficDistribution = function(req, res) {
+  console.log("Non stringifyed" + req.body);
+  console.log(req.body.mirrorMode);
+
+  console.log("Stringifyed " + JSON.stringify(req.body));
     var bodyString = JSON.stringify(req.body);
     var options = {
       host: 'consul.0.youdown.com',
@@ -74,15 +51,15 @@ exports.setTrafficDistribution = function(req, res) {
     };
 
     var headers = {
-        'Content-Type': 'application/json',
-        'Content-Length': bodyString.length
+        'Content-Type': 'application/json'
+//        'Content-Length': bodyString.length
     };
 
 
     console.log("Body to post - " + bodyString);
 
     var callback = function(response) {
-      console.log("Response received from Consul - " + response);
+      console.log("Response received from Consul");
       var str = '';
 
         //another chunk of data has been recieved, so append it to `str`
@@ -97,9 +74,10 @@ exports.setTrafficDistribution = function(req, res) {
         });
     };
 
-    http.request(options, callback).write(bodyString);
+    var putreq = http.request(options, callback).write(bodyString);
+    console.log(putreq);
     console.log("PUT to Consul started");
-    res.send(200);
+//    res.send(200);
 }
  
 /**
