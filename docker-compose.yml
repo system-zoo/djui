@@ -6,11 +6,8 @@ web:
     - "3000:3000"
   links:
    - mongo
-   - elastic
 mongo:
     image: mongo:latest
     ports:
      - "27017:27017"
 
-elastic:
-    image: elasticsearch
