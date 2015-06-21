@@ -63,21 +63,35 @@ exports.getSystemZoo = function(req, res) {
 }
 
 exports.setTrafficDistribution = function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  /*
-{
-  percent: "10",
-  mirrormode: "false"
-}
-  */
+    var options = {
+      host: 'consul.0.youdown.com',
+      path: 'v1/kv/themix',
+      port: 8500,
+      method: 'PUT',
+      headers: headers
+    };
 
-  var percent = req.body.percent;
-  var mirrormode = req.body.mirrormode;
-
-    'use strict';
+    var headers = {
+        'Content-Type': 'application/json',
+        'Content-Length': bodyString.length
+    };
     console.log(req.body);
-    console.log(req.body.percent);
-    console.log(req.body.mirrormode);
+
+    var callback = function(response) {
+      var str = '';
+
+        //another chunk of data has been recieved, so append it to `str`
+        response.on('data', function(chunk) {
+          str += chunk;
+        });
+
+        //the whole response has been recieved, so we just print it out here
+        response.on('end', function() {
+          console.log(str);
+        });
+    };
+
+    http.request(options, callback).write(req.body);
     res.send(200);
 }
  

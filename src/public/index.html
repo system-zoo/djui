@@ -147,18 +147,18 @@ $(function() {
         revisions:[
         {
          revision:1,
-         trafficRatio:0.9,
+         trafficRatio:,
          primary:true
         },
         {
          revision:2,
-         trafficRatio:0.1,
+         trafficRatio:,
          primary:false
       }
    ]
 };
 
-var url="http://consul.0.youdown.com:8500/v1/kv/themix"
+var url="http://localhost/v1/kv/themix"
 alert("url="+url+" data="+datajson);
 	   $.ajax({
     	    type: "PUT",
